@@ -1,14 +1,12 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        # DP
-        # T: O(N)
-        # S: O(N)
+        # DP Approach - Kadane's Algorithm
+        # Time Complexity: O(n) & Space Complexity: O(1)
         
-        cache = [0] * len(nums)
-        cache[0] = nums[0]
+        current_sub = nums[0]
+        max_sub = nums[0]
         
-        for i in range(1, len(nums)):
-            cache[i] = max(nums[i] + cache[i-1], nums[i])
-            
-        return max(cache)
-        
+        for num in nums[1:]:
+            current_sub = max(num, current_sub + num)
+            max_sub = max(max_sub, current_sub)
+        return max_sub
