@@ -3,8 +3,9 @@ class Solution:
             
         dict = {}
         
-        for i in range(len(nums)):
-            if target - nums[i] in dict:
-                return [i, dict[target - nums[i]]]
-            dict[nums[i]] = i
+        for index,num in enumerate(nums):
+            complement = target - num
+            if complement in dict:
+                return [dict[complement], index]
             
+            dict[num] = index
