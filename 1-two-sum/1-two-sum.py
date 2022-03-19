@@ -1,19 +1,16 @@
-from collections import Counter
-
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-#         count = {}
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
         
-#         for index,num in enumerate(nums):
-#             complement = target - num
-#             if complement in count:
-#                 return [index, count[complement]]
-#             count[num] = index
-        
-        count = {}
+        result = {}
         
         for index, num in enumerate(nums):
             complement = target - num
-            if complement in count:
-                return [index, count[complement]]
-            count[num] = index
+            if complement in result:
+                return [result[complement], index]
+            
+            result[num] = index
