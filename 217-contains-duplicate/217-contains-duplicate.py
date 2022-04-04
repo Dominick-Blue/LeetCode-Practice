@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
+        
         hist = {}
         
         for num in nums:
@@ -11,7 +12,4 @@ class Solution(object):
                 return True
             else:
                 hist[num] = 1
-
         return False
-    
-        
