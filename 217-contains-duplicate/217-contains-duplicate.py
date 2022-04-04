@@ -4,12 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        
-        hist = {}
+        visited = set()
         
         for num in nums:
-            if num in hist:
+            if num in visited:
                 return True
             else:
-                hist[num] = 1
+                visited.add(num)
         return False
