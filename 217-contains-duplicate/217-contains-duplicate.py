@@ -1,17 +1,17 @@
-from collections import Counter
-
 class Solution(object):
     def containsDuplicate(self, nums):
         """
         :type nums: List[int]
         :rtype: bool
         """
+        hist = {}
         
-        num_count = Counter(nums)
-        
-        for num in num_count:
-            if num_count[num] >= 2:
+        for num in nums:
+            if num in hist:
                 return True
-            
-            
+            else:
+                hist[num] = 1
+
         return False
+    
+        
