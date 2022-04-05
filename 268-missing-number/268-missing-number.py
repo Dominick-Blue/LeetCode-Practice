@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        
         num_set = set(nums)
         n = len(nums) + 1
         
