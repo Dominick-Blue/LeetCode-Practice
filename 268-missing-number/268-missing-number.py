@@ -4,15 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        num_set = set(nums)
+        n = len(nums) + 1
         
-        nums.sort()
-        
-        if nums[-1] != len(nums):
-            return len(nums)
-        if nums[0] != 0:
-            return 0
-        
-        for num in range(1, len(nums)):
-            expected_num = nums[num - 1] + 1
-            if nums[num] != expected_num:
-                return expected_num
+        for num in range(n):
+            if num not in num_set:
+                return num
