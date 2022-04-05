@@ -9,24 +9,15 @@ class Solution(object):
         if len(s) != len(t):
             return False
         
-        count_s, count_t = {}, {}
+        count_s, count_t = {},{}
         
-        for char in s:
-            if char in count_s:
-                count_s[char] += 1
-            else:
-                count_s[char] = 1
+        for i in range(0, len(s)):
+            count_s[s[i]] = count_s.get(s[i], 0) + 1
+            count_t[t[i]] = count_t.get(t[i], 0) + 1
         
-        for char in t:
-            if char in count_t:
-                count_t[char] += 1
-            else:
-                count_t[char] = 1
-                
         for char in count_s:
-            if count_s[char] != count_t.get(char, 0):
-                return False
-        
+                if count_s[char] != count_t.get(char, 0):
+                    return False
+                
         return True
                 
-        
