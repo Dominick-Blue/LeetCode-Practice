@@ -5,7 +5,6 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        
         dict = {}
         
         for index, num in enumerate(nums):
@@ -13,5 +12,3 @@ class Solution(object):
             if complement in dict:
                 return [dict[complement], index]
             dict[num] = index
-                
-            
