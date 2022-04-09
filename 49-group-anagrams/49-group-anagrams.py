@@ -13,7 +13,10 @@ class Solution(object):
         key_map = defaultdict(list)
         
         for s in strs:
-            key_map["".join(sorted(s))].append(s)
+            arr = [0] * 26
+            for l in s:
+                arr[ord(l) - ord('a')] += 1
+            key_map[tuple(arr)].append(s)
         
         return key_map.values()
             
