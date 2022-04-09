@@ -5,10 +5,14 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        dict = {}
+        
+        complement_map = {}
         
         for index, num in enumerate(nums):
             complement = target - num
-            if complement in dict:
-                return [dict[complement], index]
-            dict[num] = index
+            if complement in complement_map:
+                return [index, complement_map[complement]]
+            complement_map[num] = index
+        
+        
+                
