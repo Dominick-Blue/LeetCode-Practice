@@ -4,12 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        
-        visited = set()
+        dict = Counter(nums)
         
         for num in nums:
-            if num in visited:
+            if dict[num] >= 2:
                 return True
-            else:
-                visited.add(num)
         return False
