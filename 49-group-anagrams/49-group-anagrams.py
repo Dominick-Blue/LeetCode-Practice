@@ -5,18 +5,12 @@ class Solution(object):
         :rtype: List[List[str]]
         """
         
-        # Create a dictionary using defaultdict
-        # Assign sorted strings to dictionary on pass 1
-        # Compare strings in str on pass 2 and if they match a key in the dictionary, append result
-        # Return result
-        
-        key_map = defaultdict(list)
+        result = collections.defaultdict(list)
         
         for s in strs:
-            arr = [0] * 26
+            count = [0] * 26
             for l in s:
-                arr[ord(l) - ord('a')] += 1
-            key_map[tuple(arr)].append(s)
-        
-        return key_map.values()
+                count[ord(l) - ord('a')] += 1
+            result[tuple(count)].append(s)
             
+        return result.values()
