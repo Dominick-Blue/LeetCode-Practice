@@ -5,5 +5,9 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        
-        return sorted(t) == sorted(s)
+        if len(s)!=len(t):
+            return False
+        for a in set(s):
+            if s.count(a) != t.count(a):
+                return False
+        return True
