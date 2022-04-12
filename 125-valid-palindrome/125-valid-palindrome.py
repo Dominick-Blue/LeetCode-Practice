@@ -7,15 +7,13 @@ class Solution(object):
         
         left, right = 0, len(s) - 1
         
-        while left < right:
-            while left < right and not s[left].isalnum():
+        while left < right: 
+            if not s[left].isalnum():
                 left += 1
-            while left < right and not s[right].isalnum():
+            elif not s[right].isalnum():
                 right -= 1
-            
-            if left < right and s[left].lower() != s[right].lower():
+            elif s[left].lower() != s[right].lower():
                 return False
-            
-            left, right = left + 1, right - 1
-            
+            else:
+                left, right = left + 1, right - 1
         return True
