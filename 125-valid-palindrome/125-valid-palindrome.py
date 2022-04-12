@@ -7,7 +7,7 @@ class Solution(object):
         
         left, right = 0, len(s) - 1
         
-        while left < right: 
+        while left < right:
             if not s[left].isalnum():
                 left += 1
             elif not s[right].isalnum():
