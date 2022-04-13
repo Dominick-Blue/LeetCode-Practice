@@ -4,16 +4,16 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-
-        list_length = len(s)
-        max_subarray = 0
-        window_start = 0
-        char_map = {}
         
-        for window_end in range(list_length):
-            if s[window_end] in char_map:
-                window_start = max(char_map[s[window_end]], window_start)
+        char_set = set()
+        left = 0
+        result = 0
+        
+        for right in range(len(s)):
+            while s[right] in char_set:
+                char_set.remove(s[left])
+                left += 1
+            char_set.add(s[right])
+            result = max(result, right - left + 1)
+        return result
                 
-            max_subarray = max(max_subarray, window_end - window_start + 1)
-            char_map[s[window_end]] = window_end + 1
-        return max_subarray
