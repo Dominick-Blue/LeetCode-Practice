@@ -3,7 +3,6 @@ class MinStack(object):
     def __init__(self):
         self.stack = []
         self.min_stack = []
-        
 
     def push(self, val):
         """
@@ -11,7 +10,7 @@ class MinStack(object):
         :rtype: None
         """
         self.stack.append(val)
-        val = min(val,self.min_stack[-1] if self.min_stack else val)
+        val = min(val, self.min_stack[-1] if self.min_stack else val)
         self.min_stack.append(val)
 
     def pop(self):
