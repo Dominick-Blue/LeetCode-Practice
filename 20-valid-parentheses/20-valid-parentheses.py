@@ -6,11 +6,10 @@ class Solution(object):
         """
         
         stack = []
-        
         paren_map = {
+            ']':'[',
             ')':'(',
-            '}': '{',
-            ']':'['
+            '}':'{'
         }
         
         for char in s:
@@ -19,6 +18,9 @@ class Solution(object):
                     stack.pop()
                 else:
                     return False
-            else:
-                stack.append(char)
+            else: stack.append(char)
+            
         return not stack
+                
+        # stack = []
+         # s = "(()[])"
