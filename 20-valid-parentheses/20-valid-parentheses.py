@@ -5,9 +5,6 @@ class Solution(object):
         :rtype: bool
         """
         
-        if s[0] == ')' or s[0] == ']' or s[0] == '}':
-            return False
-        
         stack = []
         
         paren_map = {
@@ -15,7 +12,6 @@ class Solution(object):
             '}': '{',
             ']':'['
         }
-        
         
         for char in s:
             if char in paren_map:
@@ -25,6 +21,4 @@ class Solution(object):
                     return False
             else:
                 stack.append(char)
-        
         return not stack
-            
