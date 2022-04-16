@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: bool
         """
         
-        ROWS, COLS = len(matrix), len(matrix[0])
+        ROWS, COLS = len(matrix),  len(matrix[0])
         
         top, bot = 0, ROWS - 1
         
@@ -18,7 +18,7 @@ class Solution(object):
                 bot = row - 1
             else:
                 break
-            
+        
         if not (top <= bot):
             return False
         
@@ -34,3 +34,4 @@ class Solution(object):
             else:
                 return True
         return False
+            
