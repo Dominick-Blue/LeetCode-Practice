@@ -5,10 +5,11 @@ class Solution(object):
         :type target: int
         :rtype: bool
         """
-    
+        
         ROWS, COLS = len(matrix), len(matrix[0])
         
         top, bot = 0, ROWS - 1
+        
         while top <= bot:
             row = (top + bot) // 2
             if target > matrix[row][-1]:
@@ -17,13 +18,12 @@ class Solution(object):
                 bot = row - 1
             else:
                 break
-            
+        
         if not (top <= bot):
             return False
         
         row = (top + bot) // 2
-        l, r = 0, COLS -1
-        
+        l, r = 0, COLS - 1
         while l <= r:
             m = (l + r) // 2
             if target > matrix[row][m]:
@@ -32,7 +32,9 @@ class Solution(object):
                 r = m - 1
             else:
                 return True
-        
         return False
-        
-            
+    
+  
+    
+   
+   
