@@ -5,13 +5,11 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-
-        lo = 0
-        hi = len(nums) - 1
+        
+        lo, hi = 0, len(nums) - 1
         
         while lo <= hi:
             mid = (lo + hi) // 2
-            
             if target < nums[mid]:
                 hi = mid - 1
             elif target > nums[mid]:
