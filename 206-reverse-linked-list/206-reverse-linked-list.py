@@ -9,19 +9,16 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
+        
         curr = head
         prev = None
         
         while curr is not None:
+            # None <-  1 ->    2 ->  3  -> 4 -> 5 -> None
+            #         prev    curr  next
             next = curr.next
             curr.next = prev
             prev = curr
             curr = next
-        
+            
         return prev
-            
-            
-        
-        
-        # None -> 1 -> 2 -> 3 -> 4
-        # prev   curr
