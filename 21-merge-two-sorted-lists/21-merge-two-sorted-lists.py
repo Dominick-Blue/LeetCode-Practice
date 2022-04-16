@@ -11,13 +11,13 @@ class Solution(object):
         :rtype: Optional[ListNode]
         """
         
-        dummy = ListNode(None)
+        dummy_head = ListNode(None)
+        tail = dummy_head
         curr1 = list1
         curr2 = list2
-        tail = dummy
         
         while curr1 is not None and curr2 is not None:
-            if curr1.val <= curr2.val:
+            if curr1.val < curr2.val:
                 tail.next = curr1
                 curr1 = curr1.next
             else:
@@ -25,10 +25,8 @@ class Solution(object):
                 curr2 = curr2.next
             
             tail = tail.next
-            
-        if curr1 is not None: 
-            tail.next = curr1
-        if curr2 is not None:
-            tail.next = curr2
         
-        return dummy.next
+        if curr1 is not None: tail.next = curr1
+        if curr2 is not None: tail.next = curr2
+        
+        return dummy_head.next
