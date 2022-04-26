@@ -16,5 +16,3 @@ class Solution(object):
             curr_sum += num
             max_sum = max(max_sum, curr_sum)
         return max_sum
-            
-            
