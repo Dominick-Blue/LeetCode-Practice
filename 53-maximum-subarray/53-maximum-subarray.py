@@ -1,12 +1,20 @@
-class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        # DP Approach - Kadane's Algorithm
-        # Time Complexity: O(n) & Space Complexity: O(1)
+class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
         
-        current_sub = nums[0]
-        max_sub = nums[0]
         
-        for num in nums[1:]:
-            current_sub = max(num, current_sub + num)
-            max_sub = max(max_sub, current_sub)
-        return max_sub
+        max_sum = nums[0]
+        curr_sum = 0
+        
+        for num in nums:
+            if curr_sum < 0:
+                curr_sum = 0
+            
+            curr_sum += num
+            max_sum = max(max_sum, curr_sum)
+        return max_sum
+            
+            
