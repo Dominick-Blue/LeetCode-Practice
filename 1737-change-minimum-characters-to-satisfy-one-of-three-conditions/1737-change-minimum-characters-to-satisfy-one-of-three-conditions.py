@@ -8,28 +8,28 @@ class Solution(object):
         :rtype: int
         """
         
-        n_a = len(a)
-        n_b = len(b)
+        letters = 'abcdefghijklmnopqrstuvwxy'
+        
+        len_a = len(a)
+        len_b = len(b)
         
         count_a = Counter(a)
         count_b = Counter(b)
         
-        def change(c_a, c_b):
-            ans = sys.maxsize
-            op_a = sum(c_a.values())
-            op_b = 0
+        def get_min_ops(first_count, second_count):
+            min_ops = float('inf')
+            ops_a = sum(first_count.values())
+            ops_b = 0
             
-            for c in "abcdefghijklmnopqrstuvwxy":
-                op_a -= c_a[c]
-                op_b += c_b[c]
-                ans = min(ans, op_a + op_b)
-                
-            return ans
+            for char in letters:
+                ops_a -= first_count[char]
+                ops_b += second_count[char]
+                min_ops = min(min_ops, ops_a + ops_b)
+            
+            return min_ops
         
-        ans1 = change(count_a, count_b)
-        ans2 = change(count_b, count_a)
-        ans3 = n_a - max(count_a.values()) + n_b - max(count_b.values())
+        condition1 = get_min_ops(count_a, count_b)
+        condition2 = get_min_ops(count_b, count_a)
+        condition3 = len_a - max(count_a.values()) + len_b - max(count_b.values())
         
-        return min(ans1, ans2, ans3)
-        
-        
+        return min(condition1,condition2,condition3)
