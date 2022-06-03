@@ -1,8 +1,7 @@
 class Solution {
-    // Hash Table for mappings
+    
     private HashMap<Character, Character> mappings;
     
-    // Initalize map with mappings
     public Solution() {
         this.mappings = new HashMap<Character, Character>();
         this.mappings.put(')', '(');
@@ -10,9 +9,8 @@ class Solution {
         this.mappings.put('}', '{');
     }
     
-    
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> stack = new Stack<>();
         
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
