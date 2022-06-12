@@ -6,11 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        results = {}
-        
-        for index,num in enumerate(nums):
-            potential = target - num
-            if potential in results:
-                return [results[potential], index]
-            else:
-                results[num] = index
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i,j]
