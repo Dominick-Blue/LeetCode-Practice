@@ -6,13 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        complement_map = {}
-        
-        for index, num in enumerate(nums):
-            complement = target - num
-            if complement in complement_map:
-                return [index, complement_map[complement]]
-            complement_map[num] = index
-        
-        
-                
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i,j]
