@@ -5,10 +5,6 @@ class Solution(object):
         :rtype: int
         """
         
-
-        
-        
-        
         window_start, window_end = 0, 1
         max_profit = 0
         
