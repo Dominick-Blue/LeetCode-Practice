@@ -4,11 +4,9 @@ class Solution(object):
         :type intervals: List[List[int]]
         :rtype: bool
         """
-        
         intervals.sort()
         
-        for interval in range(len(intervals) - 1):
-            if intervals[interval][1] > intervals[interval+1][0]:
+        for i in range(len(intervals) - 1):
+            if intervals[i][1] > intervals[i+1][0]:
                 return False
-        
         return True
