@@ -5,11 +5,10 @@ class Solution(object):
         :rtype: bool
         """
         
-        visited = set()
+        occurence = set()
         
         for num in nums:
-            if num in visited:
+            if num in occurence:
                 return True
-            visited.add(num)
+            occurence.add(num)
         return False
-                
